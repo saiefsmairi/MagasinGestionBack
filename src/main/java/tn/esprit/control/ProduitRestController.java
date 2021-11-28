@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import tn.esprit.entity.Client;
 import tn.esprit.entity.Produit;
 import tn.esprit.spring.service.IClientService;
@@ -23,6 +25,7 @@ import tn.esprit.spring.service.IProduitService;
 
 	@RestController
 	@RequestMapping("/produit")
+		@JsonIgnoreProperties
 	public class ProduitRestController {
 	
 	@Autowired
@@ -30,7 +33,7 @@ import tn.esprit.spring.service.IProduitService;
 	
 	@GetMapping("/retrieve-all-produits")
 	@ResponseBody
-	public List<Produit> getClients() {
+	public List<Produit> getProduits() {
 	List<Produit> listProduits = produitService.retrieveAllProduits();
 	return listProduits;
 	}
