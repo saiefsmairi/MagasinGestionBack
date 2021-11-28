@@ -1,5 +1,5 @@
 package tn.esprit.entity;
 
 public enum CategorieClient {
-fidele,ordinaire,premuim
+fidele,ordinaire,premuim,admin
 }
