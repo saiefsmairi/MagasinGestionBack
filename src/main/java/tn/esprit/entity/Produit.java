@@ -20,6 +20,9 @@ import javax.persistence.OneToOne;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import lombok.AllArgsConstructor;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
+
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -52,6 +55,7 @@ Date createdAt;
 @Column 
 Date updatedAt;
 @ManyToOne
+@JsonBackReference
 private Stock stock;
 @OneToOne
 private CategorieProduit categorieProduit;
@@ -64,6 +68,7 @@ private Rayon rayon;
 private List<detailFacture> detailFactures;
 
 @ManyToMany(cascade = CascadeType.ALL)
+@JsonBackReference
 @JoinTable(name = "T_PRODUIT_FOURNISSEUR",joinColumns={@JoinColumn(name="idproduit")},inverseJoinColumns={@JoinColumn(name ="idFournisseur")})
 private Set<Fournisseur> fournisseurs;
 
