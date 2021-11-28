@@ -3,6 +3,9 @@ package tn.esprit.spring;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import org.junit.Test;
@@ -26,10 +29,22 @@ public class ProduitServiceTest {
     private IProduitService produitService;
 
     @Test
-    public void testAddProduit() {
+    public void testAddProduit() throws ParseException {
         List<Produit> produits = produitService.retrieveAllProduits();
         int expected = produits.size();
-        Produit produit = new Produit("p123", "produit 123", 5.2F);
+       //Produit produit = new Produit("p123", "produit 123", 5.2F);
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+		Date d1 = dateFormat.parse("16/08/1999");
+		Date d2 = dateFormat.parse("1/04/1999");
+		Produit produit = new Produit();
+		produit.setId(123);
+		produit.setTitle("corbeille");
+		produit.setDescription("descProduct");
+		produit.setCreatedAt(d1);
+		produit.setUpdatedAt(d2);
+		produit.setPicture("pic.png");
+		produit.setPrice(15.2F);
+	
        // Produit savedProduit = produitService.addProduit(produit);
        assertEquals(expected + 1, produitService.retrieveAllProduits().size());
        //assertNotNull(savedProduit.getCode());

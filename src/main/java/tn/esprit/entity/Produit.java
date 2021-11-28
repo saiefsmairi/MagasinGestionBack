@@ -17,9 +17,13 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
 
 import javax.persistence.JoinColumn;
 
@@ -28,29 +32,29 @@ import javax.persistence.JoinColumn;
 @Getter
 @Setter
 @NoArgsConstructor
+@AllArgsConstructor
 public class Produit {
 
 @Id
 @GeneratedValue( strategy = GenerationType.IDENTITY )
 @Column
-private long idproduit;
-
-
-
+private long id;
 @Column
-String code;
-
+String title;
 @Column
-String libelle;
-
+Float price;
 @Column
-Float prixUnitaire;
-
+String description;
+@Column
+String picture;
+@Column
+Date createdAt;
+@Column 
+Date updatedAt;
 @ManyToOne
 private Stock stock;
-
 @OneToOne
-private DetailProduit detailProduit;
+private CategorieProduit categorieProduit;
 
 
 @ManyToOne
@@ -64,12 +68,6 @@ private List<detailFacture> detailFactures;
 @JoinTable(name = "T_PRODUIT_FOURNISSEUR",joinColumns={@JoinColumn(name="idproduit")},inverseJoinColumns={@JoinColumn(name ="idFournisseur")})
 private Set<Fournisseur> fournisseurs;
 
-public Produit(String code, String libelle, Float prixUnitaire) {
-	super();
-	this.code = code;
-	this.libelle = libelle;
-	this.prixUnitaire = prixUnitaire;
-}
 
 
 

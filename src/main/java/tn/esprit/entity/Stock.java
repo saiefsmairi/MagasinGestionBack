@@ -1,6 +1,8 @@
 package tn.esprit.entity;
 
+import java.util.Date;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,50 +11,36 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 @Entity
 @Getter
 @Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class Stock {
 
 @Id
 @GeneratedValue( strategy = GenerationType.IDENTITY )
 @Column
-private long idstock;
+private long id;
 
 @Column
-int qte;
-
+int quantite;
 @Column
-int qteMin;
-
+String size;
 @Column
-String libelleStock;
-
+String color;
 @OneToMany(mappedBy="stock")
 private List<Produit> produits;
 
 
-public Stock() {
-	super();
-	// TODO Auto-generated constructor stub
-}
 
 
-public Stock(int qte, int qteMin, String libelleStock) {
-	super();
-	this.qte = qte;
-	this.qteMin = qteMin;
-	this.libelleStock = libelleStock;
-}
 
 
-@Override
-public String toString() {
-	return "Stock [idstock=" + idstock + ", qte=" + qte + ", qteMin=" + qteMin + ", libelleStock=" + libelleStock
-			+ ", produits=" + produits + "]";
-}
  
 
 }

@@ -15,7 +15,6 @@ import org.springframework.stereotype.Service;
 import lombok.extern.slf4j.Slf4j;
 import tn.esprit.entity.CategorieProduit;
 import tn.esprit.entity.Client;
-import tn.esprit.entity.DetailProduit;
 import tn.esprit.entity.Produit;
 import tn.esprit.entity.Rayon;
 import tn.esprit.entity.Stock;
@@ -49,8 +48,8 @@ public class ProduitServiceImpl implements IProduitService {
 	public Produit addProduit(Produit p, Long idRayon, Long idStock) {
 		Rayon r = rayonRepository.findById(idRayon) .orElse(null);
 		Stock s = stockRepository.findById(idStock) .orElse(null);
-		CategorieProduit c=CategorieProduit.Electromeanger;
-		DetailProduit detailProduit=new DetailProduit(new Date(),new Date(),7.99f,c,p);
+		//CategorieProduit c=CategorieProduit.Electromeanger;
+		//DetailProduit detailProduit=new DetailProduit(new Date(),new Date(),7.99f,c,p);
 		p.setRayon(r);
 		p.setStock(s);
 		produitRepository.save(p);
@@ -92,6 +91,6 @@ public class ProduitServiceImpl implements IProduitService {
 	@Scheduled(cron = "0 0 22 * * *") 
 	public void retrieveStatusStock() {
 	  produitRepository.retrieveStatusStock()
-	          .forEach(produit -> log.warn("PRODUIT "+produit.getIdproduit()+" CODE : "+produit.getCode()+" est epuisé !"));
+	          .forEach(produit -> log.warn("PRODUIT "+produit.getId()+" Title : "+produit.getTitle()+" est epuisé !"));
 	}
 }

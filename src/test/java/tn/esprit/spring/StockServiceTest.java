@@ -27,11 +27,16 @@ public class StockServiceTest {
     public void testAddStock() {
         List<Stock> stocks = stockService.retrieveAllStocks();
         int expected = stocks.size();
-        Stock stock = new Stock(20,2,"stock 1");
+        Stock stock = new Stock();
+        stock.setId(1654);
+        stock.setColor("brown");
+        stock.setSize("litte");
+        stock.setQuantite(50);
+        
         Stock savedStock= stockService.addStock(stock);
         assertEquals(expected + 1, stockService.retrieveAllStocks().size());
-        assertNotNull(savedStock.getIdstock());
-        stockService.deleteStock(savedStock.getIdstock());
+        assertNotNull(savedStock.getId());
+        stockService.deleteStock(savedStock.getId());
     }
 
     @Test
