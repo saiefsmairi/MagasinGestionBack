@@ -38,7 +38,7 @@ public class Produit {
 @Id
 @GeneratedValue( strategy = GenerationType.IDENTITY )
 @Column
-private long id;
+private long idproduit;
 @Column
 String title;
 @Column
@@ -55,7 +55,6 @@ Date updatedAt;
 private Stock stock;
 @OneToOne
 private CategorieProduit categorieProduit;
-
 
 @ManyToOne
 private Rayon rayon;

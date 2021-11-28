@@ -87,10 +87,10 @@ public class ProduitServiceImpl implements IProduitService {
 
 
 
-	    @Override
+	/*    @Override
 	@Scheduled(cron = "0 0 22 * * *") 
 	public void retrieveStatusStock() {
 	  produitRepository.retrieveStatusStock()
 	          .forEach(produit -> log.warn("PRODUIT "+produit.getId()+" Title : "+produit.getTitle()+" est epuisé !"));
-	}
+	}*/
 }

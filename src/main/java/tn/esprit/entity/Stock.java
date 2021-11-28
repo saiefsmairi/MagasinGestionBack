@@ -25,7 +25,7 @@ public class Stock {
 @Id
 @GeneratedValue( strategy = GenerationType.IDENTITY )
 @Column
-private long id;
+private long idstock;
 
 @Column
 int quantite;

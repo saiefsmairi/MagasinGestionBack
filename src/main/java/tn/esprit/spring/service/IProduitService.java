@@ -14,5 +14,5 @@ public interface IProduitService {
 	 void delete(long id);
 	 void assignProduitToStock(Long	idProduit,Long idStock);
 	 float getRevenuBrutProduit(Long idProduit,	Date startDate,	Date endDate);
-	 void retrieveStatusStock();
+	// void retrieveStatusStock();
 }

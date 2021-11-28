@@ -22,7 +22,7 @@ public interface ProduitRepository extends JpaRepository<Produit,Long> {
 	float getRevenuBrutProduit(@Param("produit") Produit produit,@Param("startDate") Date startDate ,@Param("endDate") Date endDate );
 	
 	
-	  @Query(value = "SELECT p FROM Produit p JOIN p.stock s WHERE s.qte<s.qteMin ")
-	    List<Produit> retrieveStatusStock();
+	  /*@Query(value = "SELECT p FROM Produit p JOIN p.stock s WHERE s.qte<s.qteMin ")
+	    List<Produit> retrieveStatusStock();*/
 
 }

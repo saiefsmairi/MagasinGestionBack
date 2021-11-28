@@ -37,7 +37,7 @@ public class ProduitServiceTest {
 		Date d1 = dateFormat.parse("16/08/1999");
 		Date d2 = dateFormat.parse("1/04/1999");
 		Produit produit = new Produit();
-		produit.setId(123);
+		produit.setIdproduit(123);
 		produit.setTitle("corbeille");
 		produit.setDescription("descProduct");
 		produit.setCreatedAt(d1);

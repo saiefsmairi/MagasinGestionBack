@@ -47,7 +47,7 @@ import tn.esprit.spring.service.IProduitService;
 	public Produit addProduit(@RequestBody Produit c)
 	{
 		
-		Produit p = produitService.addProduit(c, c.getRayon().getIdRayon(), c.getStock().getId());
+		Produit p = produitService.addProduit(c, c.getRayon().getIdRayon(), c.getStock().getIdstock());
 	return p;
 	}
 	

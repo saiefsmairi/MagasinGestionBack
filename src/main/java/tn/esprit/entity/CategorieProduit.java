@@ -22,7 +22,7 @@ import lombok.Setter;
 public class CategorieProduit {
 	
 @Id 
-private long id;
+private long idCategorieProduit;
 
 @Column 
 private String name;
