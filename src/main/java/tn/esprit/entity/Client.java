@@ -35,7 +35,8 @@ public class Client {
 	String email;
 	@Column
 	String password;
-
+	@Column
+	String password1;
 	@Column
 	@Enumerated(EnumType.STRING)
 	CategorieClient categorieClient ;
