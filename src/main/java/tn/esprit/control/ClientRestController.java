@@ -22,7 +22,8 @@ import tn.esprit.entity.CategorieClient;
 import tn.esprit.entity.Client;
 import tn.esprit.spring.service.IClientService;
 
-	@CrossOrigin(origins = "http://localhost:8089")
+@CrossOrigin(origins = "*", maxAge = 3600)
+
 	@RestController
 	@RequestMapping("/client")
 	public class ClientRestController { 

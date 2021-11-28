@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,13 +15,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import tn.esprit.entity.Client;
 import tn.esprit.entity.Produit;
 import tn.esprit.spring.service.IClientService;
 import tn.esprit.spring.service.IProduitService;
+@CrossOrigin(origins = "*", maxAge = 3600)
 
 	@RestController
 	@RequestMapping("/produit")
+		@JsonIgnoreProperties
 	public class ProduitRestController {
 	
 	@Autowired
@@ -28,7 +33,7 @@ import tn.esprit.spring.service.IProduitService;
 	
 	@GetMapping("/retrieve-all-produits")
 	@ResponseBody
-	public List<Produit> getClients() {
+	public List<Produit> getProduits() {
 	List<Produit> listProduits = produitService.retrieveAllProduits();
 	return listProduits;
 	}
