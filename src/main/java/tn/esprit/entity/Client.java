@@ -11,6 +11,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -30,13 +32,12 @@ public class Client {
 	@Column
 	String prenom;
 	@Column
+	@Temporal(TemporalType.DATE)
 	Date dateNaissance;
 	@Column
 	String email;
 	@Column
 	String password;
-	@Column
-	String password1;
 	@Column
 	@Enumerated(EnumType.STRING)
 	CategorieClient categorieClient ;
