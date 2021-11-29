@@ -15,6 +15,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -45,6 +47,7 @@ String libelle;
 Float prixUnitaire;
 
 @ManyToOne
+@JsonBackReference
 private Stock stock;
 
 @OneToOne
@@ -62,6 +65,7 @@ private Rayon rayon;
 private List<detailFacture> detailFactures;
 
 @ManyToMany(cascade = CascadeType.ALL)
+@JsonBackReference
 @JoinTable(name = "T_PRODUIT_FOURNISSEUR",joinColumns={@JoinColumn(name="idproduit")},inverseJoinColumns={@JoinColumn(name ="idFournisseur")})
 private Set<Fournisseur> fournisseurs;
 
