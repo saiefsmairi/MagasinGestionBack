@@ -18,6 +18,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -49,7 +50,9 @@ String libelle;
 Float prixUnitaire;
 
 @ManyToOne
-@JsonBackReference
+
+@JsonBackReference(value="stockref")
+
 private Stock stock;
 
 @OneToOne
