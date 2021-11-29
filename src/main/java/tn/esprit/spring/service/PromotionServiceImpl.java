@@ -5,12 +5,10 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import lombok.extern.slf4j.Slf4j;
 import tn.esprit.entity.Promotion;
 import tn.esprit.spring.repository.PromotionRepository;
 
 @Service
-@Slf4j
 public class PromotionServiceImpl implements IPromotionService {
 	
 	@Autowired
@@ -24,8 +22,7 @@ public class PromotionServiceImpl implements IPromotionService {
 
 	@Override
 	public Promotion update(Promotion promotion) {
-		// TODO Auto-generated method stub
-		return null;
+		return promotionRepository.save(promotion);
 	}
 
 	@Override

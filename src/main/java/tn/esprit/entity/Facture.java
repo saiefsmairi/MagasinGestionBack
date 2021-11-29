@@ -49,7 +49,8 @@ public class Facture {
 	@JoinColumn(name="FK_CLIENT_ID")
     @JsonBackReference
 	Client client;
-	
+
+    
 	@OneToMany(mappedBy="facture")
 	private Set<detailFacture> detailFactures;
 	
