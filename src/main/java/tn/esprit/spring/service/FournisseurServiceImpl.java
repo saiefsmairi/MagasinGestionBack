@@ -64,6 +64,12 @@ public class FournisseurServiceImpl implements IFournisseurService{
 	public void assignFournisseurToProduit(Long fournisseurId, Long produitId) {
 		Produit p = produitRepository.findById(produitId) .orElse(null);
 		Fournisseur f = fournisseurRepository.findById(fournisseurId) .orElse(null);
+		
+		System.out.println(fournisseurId);
+		System.out.println("----------");
+
+		System.out.println(produitId);
+
 		f.getProduits().add(p);
 		
 	

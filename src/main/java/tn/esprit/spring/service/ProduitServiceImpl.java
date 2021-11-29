@@ -59,9 +59,10 @@ public class ProduitServiceImpl implements IProduitService {
 	}
 
 	@Override
-	public Produit retrieveProduit(Long id) {
-		produitRepository.findById(id);
-		return null;
+	public Produit findById(Long id) {
+		return produitRepository.findById(id).orElse(null);
+
+		
 	}
 
 	@Override

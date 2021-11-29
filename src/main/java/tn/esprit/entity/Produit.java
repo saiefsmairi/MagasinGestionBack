@@ -75,6 +75,13 @@ public Produit(String code, String libelle, Float prixUnitaire) {
 	this.prixUnitaire = prixUnitaire;
 }
 
+@Override
+public String toString() {
+	return "Produit [idproduit=" + idproduit + ", code=" + code + ", libelle=" + libelle + ", prixUnitaire="
+			+ prixUnitaire + ", stock=" + stock + ", detailProduit=" + detailProduit + ", rayon=" + rayon
+			+ ", detailFactures=" + detailFactures + ", fournisseurs=" + fournisseurs + "]";
+}
+
 
 
 }

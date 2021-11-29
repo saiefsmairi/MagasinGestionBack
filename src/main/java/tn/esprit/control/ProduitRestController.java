@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import tn.esprit.entity.Client;
+import tn.esprit.entity.Fournisseur;
 import tn.esprit.entity.Produit;
 import tn.esprit.spring.service.IClientService;
 import tn.esprit.spring.service.IProduitService;
@@ -42,14 +43,14 @@ import tn.esprit.spring.service.IProduitService;
 	@GetMapping("/retrieve-produit/{produit-id}")
 	@ResponseBody
 	public Produit retrieveProduit(@PathVariable("produit-id") Long produitID) {
-	return produitService.retrieveProduit(produitID);
+	return produitService.findById(produitID);
 	}
 	
 	@PostMapping("/add-produit")
 	@ResponseBody
 	public Produit addProduit(@RequestBody Produit c)
 	{
-		
+		System.out.println(c);
 		Produit p = produitService.addProduit(c, c.getRayon().getIdRayon(), c.getStock().getIdstock());
 	return p;
 	}
@@ -57,7 +58,11 @@ import tn.esprit.spring.service.IProduitService;
 	@DeleteMapping("/remove-produit/{produit-id}")
 	@ResponseBody
 	public void removeProduit(@PathVariable("produit-id") Long produitID) {
+		/*Produit p= produitService.findById(produitID);
+		System.out.println("-----------");
+		System.out.println(p.getIdproduit());*/
 		produitService.delete(produitID);
+		
 	}
 	
 	

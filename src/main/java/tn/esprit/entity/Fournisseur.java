@@ -42,6 +42,12 @@ public Fournisseur() {
 	// TODO Auto-generated constructor stub
 }
 
+@Override
+public String toString() {
+	return "Fournisseur [idFournisseur=" + idFournisseur + ", code=" + code + ", libelle=" + libelle + ", produits="
+			+ produits + "]";
+}
+
 
 
 }

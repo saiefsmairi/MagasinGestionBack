@@ -65,7 +65,8 @@ import tn.esprit.spring.service.IProduitService;
 
 	@PutMapping("/assignFournisseurToProduit/{fournisseur-id}/{produit-id}")
 	@ResponseBody
-	public void assignProduitToStock(@PathVariable("produit-id") Long fournisseurId,@PathVariable("produit-id") Long produitId) {
+	public void assignProduitToStock(@PathVariable("fournisseur-id") Long fournisseurId,@PathVariable("produit-id") Long produitId) {
+		
 		FournisseurService.assignFournisseurToProduit(fournisseurId, produitId);
 	}
 
