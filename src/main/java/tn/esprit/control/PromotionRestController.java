@@ -33,14 +33,14 @@ public class PromotionRestController {
 	
 	@GetMapping("/getById/{id}")
 	@ResponseBody
-	public Promotion retrieveClient(@PathVariable("id") Long id) {
+	public Promotion retrievePromotion(@PathVariable("id") Long id) {
 	return promotionService.findById(id);
 	}
 	
 	
 	@PostMapping("/add")
 	@ResponseBody
-	public Promotion addClient(@RequestBody Promotion p)
+	public Promotion addPromotion(@RequestBody Promotion p)
 	{
 		Promotion promotion = promotionService.add(p);
 		return promotion;
@@ -48,13 +48,13 @@ public class PromotionRestController {
 	
 	@DeleteMapping("/delete/{id}")
 	@ResponseBody
-	public void removePromotiont(@PathVariable("id") Long id) {
+	public void removePromotion(@PathVariable("id") Long id) {
 		promotionService.delete(id);
 	}
 	
 	@PutMapping("/modify")
 	@ResponseBody
-	public Promotion modifyClient(@RequestBody Promotion promotion) {
+	public Promotion modifyPromotion(@RequestBody Promotion promotion) {
 	return promotionService.update(promotion);
 	}
 	
