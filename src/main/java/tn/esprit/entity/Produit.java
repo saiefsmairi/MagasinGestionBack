@@ -72,7 +72,8 @@ private List<detailFacture> detailFactures;
 @JoinTable(name = "T_PRODUIT_FOURNISSEUR",joinColumns={@JoinColumn(name="idproduit")},inverseJoinColumns={@JoinColumn(name ="idFournisseur")})
 private Set<Fournisseur> fournisseurs;
 
-
+@OneToOne(mappedBy="product") 
+private Promotion promotion ; 
 
 
 }
